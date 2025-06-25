@@ -21,12 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)rg0@&0b3!0ps*1khz1+5bx443x!tl3q0md&+8i!z++04z#fcf'
+SECRET_KEY = 'rqrbPq1oeqPoSDmc1K7xrhF9sYlE8WFIZLoCXvoTb5E9clNHZizJ5jUCStPOxi0-vi4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+import os
+ALLOWED_HOSTS = ['*']  # This will be configured in Heroku settings later
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
@@ -83,8 +84,9 @@ WSGI_APPLICATION = 'springfund.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import os
 DATABASES = {
-    'default': django_mongodb_backend.parse_uri("mongodb://localhost:27017/springfund")
+    'default': django_mongodb_backend.parse_uri(os.environ.get('MONGODB_URI', "mongodb://localhost:27017/springfund"))
 }
 
 DEFAULT_AUTO_FIELD = 'django_mongodb_backend.fields.ObjectIdAutoField'
