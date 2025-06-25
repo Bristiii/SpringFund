@@ -42,7 +42,7 @@ ENV/
 /build/* linguist-vendored
 /node_modules/* linguist-vendored
 
-# Ignore specific file types (example for frontend projects)
+
 *.css linguist-vendored
 *.js linguist-vendored
 *.html linguist-vendored
