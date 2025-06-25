@@ -38,3 +38,11 @@ ENV/
 # Database
 *.db
 *.sqlite3
+# Ignore build files or any folder you want GitHub to ignore for language stats
+/build/* linguist-vendored
+/node_modules/* linguist-vendored
+
+# Ignore specific file types (example for frontend projects)
+*.css linguist-vendored
+*.js linguist-vendored
+*.html linguist-vendored
